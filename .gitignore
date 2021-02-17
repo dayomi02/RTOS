@@ -1,1 +1,5 @@
 /build/
+*.axf
+*.bin
+*.ld
+*.o
