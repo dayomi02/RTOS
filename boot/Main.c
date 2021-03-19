@@ -8,6 +8,8 @@
 static void Hw_init(void);
 static void Timer_test(void);
 
+static void Kernel_init(void);
+
 void User_task0(void);
 void User_task1(void);
 void User_task2(void); 
@@ -28,8 +30,9 @@ void main(void)
 	
 	//while(true);
 
-	Timer_test();
+	//Timer_test();
 
+    Kernel_init();
 }
 
 static void Hw_init(void)
@@ -74,31 +77,37 @@ static void Kernel_init(void)
         putstr("Task2 creation fail\n");
     }
 
+    Kernel_task_start();
 }
 
 void User_task0(void)
 {
     uint32_t local = 0;
 
-    putstr("User Task #0\n");
-
-    while(true);
+    while(true){
+        delay(1000);
+        putstr("User Task #0\n");
+        Kernel_yield();
+    }
 }
 
 void User_task1(void)
 {
     uint32_t local = 0;
 
-    putstr("User Task #1\n");
-
-    while(true);
-}
+    while(true){
+        delay(1000);
+        putstr("User Task #1\n");
+        Kernel_yield();
+    }}
 
 void User_task2(void)
 {
     uint32_t local = 0;
 
-    putstr("User Task #2\n");
-
-    while(true);
+    while(true){
+        delay(1000);
+        putstr("User Task #2\n");
+        Kernel_yield();
+    }
 }
