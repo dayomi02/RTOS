@@ -26,4 +26,7 @@ typedef void (*KernelTaskFunc_t)(void);
 void     Kernel_task_init(void);
 uint32_t Kernel_task_create(KernelTaskFunc_t startFunc);
 
+void     Kernel_task_start(void);
+
+
 #endif /* KERNEL_TASK_H_ */
